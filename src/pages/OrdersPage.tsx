@@ -35,10 +35,10 @@ interface Order {
     createdAt: string;
     shippingAddress: {
         fullName: string;
-        addressLine1: string;
+        address: string;
         city: string;
         state: string;
-        postalCode: string;
+        pincode: string;
     };
 }
 
@@ -248,9 +248,9 @@ export default function OrdersPage() {
                                                             <div>
                                                                 <h4 className="font-semibold mb-2">Shipping Address</h4>
                                                                 <div className="text-sm text-muted-foreground">
-                                                                    <p className="text-foreground font-medium">{order.shippingAddress.fullName}</p>
-                                                                    <p>{order.shippingAddress.addressLine1}</p>
-                                                                    <p>{order.shippingAddress.city}, {order.shippingAddress.state} {order.shippingAddress.postalCode}</p>
+                                                                     <p className="text-foreground font-medium">{order.shippingAddress.fullName}</p>
+                                                                     <p>{order.shippingAddress.address}</p>
+                                                                     <p>{order.shippingAddress.city}, {order.shippingAddress.state} - {order.shippingAddress.pincode}</p>
                                                                 </div>
                                                             </div>
 
