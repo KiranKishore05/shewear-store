@@ -50,8 +50,9 @@ export default function ShopPage() {
 
     // Apply category param or selected category
     const category = categoryParam || selectedCategory;
-    if (category && category !== 'All') {
-      result = result.filter((p) => p.category === category);
+    if (category && category.toLowerCase() !== 'all') {
+      const normalizedCategory = category.toLowerCase();
+      result = result.filter((p) => p.category.toLowerCase() === normalizedCategory);
     }
 
     // Apply price range

@@ -7,7 +7,11 @@ import dotenv from 'dotenv';
 import path from 'path';
 
 // Load environment variables
-dotenv.config({ path: path.join(__dirname, '../../.env') });
+dotenv.config({ path: path.resolve(process.cwd(), 'server', '.env') });
+// Fallback for when running from server directory
+if (!process.env.MONGODB_URI) {
+    dotenv.config({ path: path.resolve(process.cwd(), '.env') });
+}
 
 // Import configurations
 import { connectDatabase, disconnectDatabase } from './config/database';

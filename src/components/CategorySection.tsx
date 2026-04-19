@@ -5,9 +5,9 @@ import product2 from '@/assets/product-2.jpg';
 import product3 from '@/assets/product-3.jpg';
 
 const categories = [
-  { name: 'Dresses', image: product1, count: 48 },
-  { name: 'Tops', image: product2, count: 36 },
-  { name: 'Skirts', image: product3, count: 24 },
+  { name: 'Sarees', image: product1, count: 48 },
+  { name: 'Lehengas', image: product2, count: 36 },
+  { name: 'Salwar Kameez', image: product3, count: 24 },
 ];
 
 export function CategorySection() {

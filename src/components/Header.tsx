@@ -219,18 +219,18 @@ export function Header() {
                       </Link>
                     </DropdownMenuItem>
                     <DropdownMenuItem asChild>
-                      <Link to="/shop?category=sarees" className="cursor-pointer">
+                      <Link to="/shop?category=Sarees" className="cursor-pointer">
                         Sarees
                       </Link>
                     </DropdownMenuItem>
                     <DropdownMenuItem asChild>
-                      <Link to="/shop?category=dresses" className="cursor-pointer">
-                        Dresses
+                      <Link to="/shop?category=Lehengas" className="cursor-pointer">
+                        Lehengas
                       </Link>
                     </DropdownMenuItem>
                     <DropdownMenuItem asChild>
-                      <Link to="/shop?category=tops" className="cursor-pointer">
-                        Tops & Tunics
+                      <Link to="/shop?category=Salwar%20Kameez" className="cursor-pointer">
+                        Salwar Kameez
                       </Link>
                     </DropdownMenuItem>
                   </DropdownMenuContent>

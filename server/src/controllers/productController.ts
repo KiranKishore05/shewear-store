@@ -13,6 +13,7 @@ import {
 /** Invalidate all product caches */
 const invalidateProductCache = async (productId?: string) => {
     await cacheInvalidatePrefix('products:');
+    await cacheDel('products:featured');
     if (productId) await cacheDel(`product:${productId}`);
 };
 

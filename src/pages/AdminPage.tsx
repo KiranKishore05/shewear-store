@@ -19,8 +19,8 @@ import {
 } from 'lucide-react';
 
 // Hardcoded admin credentials
-const ADMIN_EMAIL = 'admin@shewear.com';
-const ADMIN_PASSWORD = 'SheWear@Admin2026';
+const ADMIN_EMAIL = 'kirankishore@gmail.com';
+const ADMIN_PASSWORD = 'kiran@123';
 import { Header } from '@/components/Header';
 import { Footer } from '@/components/Footer';
 import { api } from '@/services/api';
@@ -133,10 +133,13 @@ export default function AdminPage() {
     try {
       setLoading(true);
       const response = await api.get('/admin/orders');
-      setOrders(response.data);
+      const data = response.data;
+      const normalizedOrders = Array.isArray(data) ? data : Array.isArray(data?.orders) ? data.orders : [];
+      setOrders(normalizedOrders);
     } catch (error) {
       console.error('Failed to fetch orders:', error);
       toast.error('Failed to load orders');
+      setOrders([]);
     } finally {
       setLoading(false);
     }
@@ -302,6 +305,7 @@ export default function AdminPage() {
     p.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
     p.category.toLowerCase().includes(searchQuery.toLowerCase())
   );
+  const safeOrders = Array.isArray(orders) ? orders : [];
 
   if (!isAdminLoggedIn) {
     return (
@@ -493,7 +497,7 @@ export default function AdminPage() {
                     </tr>
                   </thead>
                   <tbody className="divide-y divide-border">
-                    {orders.map((order) => (
+                    {safeOrders.map((order) => (
                       <tr key={order.orderId} className="hover:bg-secondary/50">
                         <td className="px-6 py-4 font-mono text-sm">{order.orderId}</td>
                         <td className="px-6 py-4">
@@ -525,7 +529,7 @@ export default function AdminPage() {
                         </td>
                       </tr>
                     ))}
-                    {orders.length === 0 && !loading && (
+                    {safeOrders.length === 0 && !loading && (
                       <tr><td colSpan={6} className="text-center py-8 text-muted-foreground">No orders found</td></tr>
                     )}
                   </tbody>

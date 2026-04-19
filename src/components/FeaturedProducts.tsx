@@ -5,8 +5,10 @@ import { ArrowRight } from 'lucide-react';
 import { ProductCard } from './ProductCard';
 import { productService } from '@/services/productService';
 import { Product } from '@/lib/products';
+import { useLocation } from 'react-router-dom';
 
 export function FeaturedProducts() {
+  const location = useLocation();
   const [featuredProducts, setFeaturedProducts] = useState<Product[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -37,7 +39,18 @@ export function FeaturedProducts() {
     };
 
     fetchFeatured();
-  }, []);
+
+    const onVisible = () => {
+      if (document.visibilityState === 'visible') {
+        fetchFeatured();
+      }
+    };
+
+    document.addEventListener('visibilitychange', onVisible);
+    return () => {
+      document.removeEventListener('visibilitychange', onVisible);
+    };
+  }, [location.pathname]);
 
   if (loading) {
     return (

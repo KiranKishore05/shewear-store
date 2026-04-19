@@ -124,6 +124,13 @@ export default function ProductDetailPage() {
     );
   }
 
+  const productImages = [
+    ...(product.images || []),
+    product.image,
+  ].filter((img): img is string => Boolean(img && img.trim().length > 0));
+
+  const galleryImages = productImages.length > 0 ? productImages : [''];
+
   const handleAddToCart = () => {
     if (!selectedSize) {
       toast.error('Please select a size');
@@ -192,7 +199,7 @@ export default function ProductDetailPage() {
               className="relative"
             >
               <ProductGallery
-                images={product.images && product.images.length > 0 ? product.images : [product.image]}
+                images={galleryImages}
                 productName={product.name}
               />
 

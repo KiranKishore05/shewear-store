@@ -12,6 +12,7 @@ export interface ProductFilters {
 export const productService = {
     getAllProducts: async (filters?: ProductFilters): Promise<Product[]> => {
         const params = new URLSearchParams();
+        params.append('_', Date.now().toString());
         if (filters?.category) params.append('category', filters.category);
         if (filters?.minPrice) params.append('minPrice', filters.minPrice.toString());
         if (filters?.maxPrice) params.append('maxPrice', filters.maxPrice.toString());
@@ -30,13 +31,13 @@ export const productService = {
     },
 
     getProductById: async (id: string): Promise<Product> => {
-        const response = await api.get(`/products/${id}`);
+        const response = await api.get(`/products/${id}?_=${Date.now()}`);
         console.log('Fetched product:', response.data);
         return response.data;
     },
 
     getFeaturedProducts: async (): Promise<Product[]> => {
-        const response = await api.get('/products/featured');
+        const response = await api.get(`/products/featured?_=${Date.now()}`);
         return response.data;
     },
 };

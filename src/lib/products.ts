@@ -118,23 +118,9 @@ export const products: Product[] = [
     reviews: 62,
     isNew: true,
   },
-  {
-    id: '8',
-    name: 'Emerald Green Gharara Set',
-    price: 11499,
-    image: product6,
-    images: [product6, product3, product5],
-    category: 'Gharara',
-    sizes: ['XS', 'S', 'M', 'L'],
-    description: 'Make a bold statement with this Emerald Green Gharara Set, a traditional Hyderabadi favorite. The rich green silk fabric is heavily embroidered with gold Zari and sequins.',
-    rating: 4.8,
-    reviews: 54,
-    isNew: true,
-    isBestseller: true,
-  },
 ];
 
-export const categories = ['All', 'Sarees', 'Lehengas', 'Anarkali', 'Sharara', 'Khada Dupatta', 'Lancha', 'Salwar Kameez', 'Gharara'];
+export const categories = ['All', 'Sarees', 'Lehengas', 'Anarkali', 'Sharara', 'Khada Dupatta', 'Lancha', 'Salwar Kameez'];
 
 export const priceRanges = [
   { label: 'Under ₹4,000', min: 0, max: 4000 },

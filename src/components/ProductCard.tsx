@@ -22,6 +22,7 @@ export function ProductCard({ product, index = 0 }: ProductCardProps) {
   const isWishlisted = isInWishlist(productId);
   const isNew = product.newArrival || product.isNew;
   const isOutOfStock = product.stock !== undefined && product.stock <= 0;
+  const displayImage = product.image || product.images?.[0] || '';
 
   const handleWishlistToggle = (e: React.MouseEvent) => {
     e.preventDefault();
@@ -35,11 +36,11 @@ export function ProductCard({ product, index = 0 }: ProductCardProps) {
   };
 
   const handleImageError = () => {
-    console.error('Image failed to load:', product.image);
+    console.error('Image failed to load:', displayImage);
     setImageError(true);
   };
 
-  if (!product.image) {
+  if (!displayImage) {
     console.warn('Product missing image URL:', product.name);
   }
 
@@ -59,7 +60,7 @@ export function ProductCard({ product, index = 0 }: ProductCardProps) {
           <Link to={`/product/${productId}`}>
             {!imageError ? (
               <motion.img
-                src={product.image}
+                src={displayImage}
                 alt={product.name}
                 className="w-full h-full object-cover"
                 animate={{ scale: isHovered ? 1.05 : 1 }}
