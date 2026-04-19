@@ -63,7 +63,6 @@ export const uploadToCloudinary = async (fileBuffer: Buffer): Promise<string> =>
 
     // Fallback: Use unsigned upload if signed failed or no credentials
     const uploadPreset = process.env.NEXT_PUBLIC_CLOUDINARY_UPLOAD_PRESET || 'ml_default';
-    const cloudName = process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME;
 
     // Use direct HTTP call for unsigned upload (bypasses signature issues)
     return new Promise((resolve, reject) => {
