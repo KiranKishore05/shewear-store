@@ -17,6 +17,8 @@ export function AddProductModal({ isOpen, onClose, onSuccess, product }: AddProd
         name: '',
         price: '',
         originalPrice: '',
+        rating: '',
+        reviews: '',
         category: '',
         description: '',
         stock: '100',
@@ -37,6 +39,8 @@ export function AddProductModal({ isOpen, onClose, onSuccess, product }: AddProd
                     name: product.name,
                     price: product.price,
                     originalPrice: product.originalPrice || '',
+                    rating: product.rating ?? '',
+                    reviews: product.reviews ?? '',
                     category: product.category,
                     description: product.description,
                     stock: product.stock,
@@ -51,6 +55,8 @@ export function AddProductModal({ isOpen, onClose, onSuccess, product }: AddProd
                     name: '',
                     price: '',
                     originalPrice: '',
+                    rating: '',
+                    reviews: '',
                     category: '',
                     description: '',
                     stock: '100',
@@ -174,6 +180,8 @@ export function AddProductModal({ isOpen, onClose, onSuccess, product }: AddProd
                 name: '',
                 price: '',
                 originalPrice: '',
+                rating: '',
+                reviews: '',
                 category: '',
                 description: '',
                 stock: '100',
@@ -261,6 +269,36 @@ export function AddProductModal({ isOpen, onClose, onSuccess, product }: AddProd
                                             onChange={handleInputChange}
                                             className="w-full px-4 py-2 bg-secondary rounded-lg border border-border focus:outline-none focus:ring-2 focus:ring-primary"
                                             placeholder="0"
+                                        />
+                                    </div>
+                                </div>
+
+                                <div className="grid grid-cols-2 gap-4">
+                                    <div>
+                                        <label className="block text-sm font-medium mb-1">Rating (0 to 5)</label>
+                                        <input
+                                            type="number"
+                                            name="rating"
+                                            value={formData.rating}
+                                            onChange={handleInputChange}
+                                            min="0"
+                                            max="5"
+                                            step="0.1"
+                                            className="w-full px-4 py-2 bg-secondary rounded-lg border border-border focus:outline-none focus:ring-2 focus:ring-primary"
+                                            placeholder="e.g. 4.8"
+                                        />
+                                    </div>
+                                    <div>
+                                        <label className="block text-sm font-medium mb-1">Reviews</label>
+                                        <input
+                                            type="number"
+                                            name="reviews"
+                                            value={formData.reviews}
+                                            onChange={handleInputChange}
+                                            min="0"
+                                            step="1"
+                                            className="w-full px-4 py-2 bg-secondary rounded-lg border border-border focus:outline-none focus:ring-2 focus:ring-primary"
+                                            placeholder="e.g. 125"
                                         />
                                     </div>
                                 </div>

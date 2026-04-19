@@ -9,12 +9,12 @@ export function HeroSection() {
   return (
     <section className="relative min-h-screen flex items-center overflow-hidden bg-gradient-to-br from-background via-secondary to-blush-light">
       {/* Background Pattern */}
-      <div className="absolute inset-0 opacity-30">
+      <div className="absolute inset-0 opacity-30 pointer-events-none">
         <div className="absolute top-20 left-10 w-72 h-72 bg-primary/20 rounded-full blur-3xl" />
         <div className="absolute bottom-20 right-10 w-96 h-96 bg-gold/10 rounded-full blur-3xl" />
       </div>
 
-      <div className="container mx-auto px-4 pt-24 lg:pt-0">
+      <div className="container mx-auto px-4 pt-24 lg:pt-0 relative z-10">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Text Content */}
           <motion.div
@@ -61,25 +61,20 @@ export function HeroSection() {
               transition={{ delay: 0.7 }}
               className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start"
             >
-              <Link to="/shop">
-                <motion.button
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  className="btn-primary flex items-center gap-2 group"
-                >
+              <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+                <Link to="/shop" className="btn-primary inline-flex items-center gap-2 group">
                   Shop Now
                   <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
-                </motion.button>
-              </Link>
-              <Link to="/shop?filter=new">
-                <motion.button
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  className="px-8 py-3 border-2 border-foreground text-foreground rounded-full font-medium hover:bg-foreground hover:text-background transition-all duration-300"
+                </Link>
+              </motion.div>
+              <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+                <Link
+                  to="/shop?filter=new"
+                  className="inline-flex items-center px-8 py-3 border-2 border-primary bg-primary/15 text-foreground rounded-full font-medium hover:bg-primary hover:text-primary-foreground transition-all duration-300"
                 >
                   New Arrivals
-                </motion.button>
-              </Link>
+                </Link>
+              </motion.div>
             </motion.div>
 
             {/* Stats */}
