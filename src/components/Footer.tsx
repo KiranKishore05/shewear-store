@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { Instagram, MessageCircle, Mail, Phone, MapPin } from 'lucide-react';
+import { Instagram, Mail, Phone, MapPin } from 'lucide-react';
 import { motion } from 'framer-motion';
 import logo from '@/assets/logo.png';
 
@@ -16,22 +16,13 @@ export function Footer() {
             </p>
             <div className="flex gap-3">
               <motion.a
-                href="https://www.instagram.com/she_wear_collections?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
+                href="https://www.instagram.com/kiran_kishore_05/"
                 target="_blank"
                 rel="noopener noreferrer"
                 whileHover={{ scale: 1.1, y: -2 }}
                 className="w-10 h-10 bg-primary rounded-full flex items-center justify-center text-primary-foreground hover-glow transition-shadow"
               >
                 <Instagram size={18} />
-              </motion.a>
-              <motion.a
-                href="https://wa.me/919999999999"
-                target="_blank"
-                rel="noopener noreferrer"
-                whileHover={{ scale: 1.1, y: -2 }}
-                className="w-10 h-10 bg-accent rounded-full flex items-center justify-center text-accent-foreground hover:shadow-lg transition-shadow"
-              >
-                <MessageCircle size={18} />
               </motion.a>
             </div>
           </div>
@@ -76,7 +67,7 @@ export function Footer() {
             <ul className="space-y-3">
               <li className="flex items-center gap-3 text-muted-foreground text-sm">
                 <Phone size={16} className="text-primary" />
-                +91 7416635858
+                +91 7288869162
               </li>
               <li className="flex items-center gap-3 text-muted-foreground text-sm">
                 <Mail size={16} className="text-primary" />
@@ -84,7 +75,7 @@ export function Footer() {
               </li>
               <li className="flex items-start gap-3 text-muted-foreground text-sm">
                 <MapPin size={16} className="text-primary mt-0.5" />
-                123 Fashion Street, Hyderabad, Telangana, India
+                123 bhimavaram, Andhra Pradesh, India
               </li>
             </ul>
           </div>

@@ -2,7 +2,7 @@ import { motion } from 'framer-motion';
 import { MessageCircle } from 'lucide-react';
 
 export function WhatsAppButton() {
-  const phoneNumber = '7416635858'; // Replace with actual WhatsApp number
+  const phoneNumber = '7288869162'; // Replace with actual WhatsApp number
   const message = 'Hi! I\'m interested in your ethnic wear collection.';
   const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
 
