@@ -316,7 +316,10 @@ export function AddProductModal({ isOpen, onClose, onSuccess, product }: AddProd
                                         <option value="Sarees">Sarees</option>
                                         <option value="Lehengas">Lehengas</option>
                                         <option value="Salwar Kameez">Salwar Kameez</option>
-                                        <option value="Kurtas">Kurtas</option>
+                                        <option value="Anarkali">Anarkali</option>
+                                        <option value="Sharara">Sharara</option>
+                                        <option value="Lancha">Lancha</option>
+                                        <option value="Khada Dupatta">Khada Dupatta</option>
                                     </select>
                                 </div>
 
