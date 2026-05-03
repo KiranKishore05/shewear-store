@@ -110,7 +110,9 @@ export const getAllProducts = async (req: Request, res: Response): Promise<void>
 
         const products = await Product.find(query).sort(sortOption).lean(); // .lean() = faster, no Mongoose overhead
 
-        await cacheSet(cacheKey, products, CACHE_TTL.PRODUCTS);
+        if (products.length > 0) {
+            await cacheSet(cacheKey, products, CACHE_TTL.PRODUCTS);
+        }
         res.json(products);
     } catch (error) {
         console.error('Get products error:', error);
@@ -144,7 +146,9 @@ export const getFeaturedProducts = async (_req: Request, res: Response): Promise
         if (cached) { res.json(cached); return; }
 
         const products = await Product.find({}).limit(4).sort({ createdAt: -1 }).lean();
-        await cacheSet(cacheKey, products, CACHE_TTL.PRODUCTS);
+        if (products.length > 0) {
+            await cacheSet(cacheKey, products, CACHE_TTL.PRODUCTS);
+        }
         res.json(products);
     } catch (error) {
         console.error('Get featured products error:', error);

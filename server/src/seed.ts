@@ -1,8 +1,20 @@
 import dotenv from 'dotenv';
+import fs from 'fs';
 import path from 'path';
 import mongoose from 'mongoose';
 
-dotenv.config({ path: path.join(__dirname, '../../.env') });
+const envPaths = [
+    path.resolve(process.cwd(), '.env'),
+    path.resolve(process.cwd(), 'server', '.env'),
+    path.resolve(__dirname, '../.env'),
+    path.resolve(__dirname, '../../.env'),
+];
+
+for (const envPath of envPaths) {
+    if (fs.existsSync(envPath)) {
+        dotenv.config({ path: envPath, override: true });
+    }
+}
 
 import Product from './models/Product';
 import { connectRedis, getRedisClient, disconnectRedis } from './config/redis';
